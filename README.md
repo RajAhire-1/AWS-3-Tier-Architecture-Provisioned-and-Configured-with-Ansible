@@ -1,43 +1,29 @@
 # AWS-3-Tier-Architecture-Provisioned-and-Configured-with-Ansible
 
 This project demonstrates the deployment of a **3-Tier Architecture** on **AWS EC2 instances** using **Ansible automation**.
-The setup includes a **Proxy Server**, an **Application Server**, and a **Database Server**, all configured automatically using a single Ansible playbook.
+The setup includes a **Proxy Server**, an **Application Server**, and a **Database Server**, all provisioned and configured automatically using Ansible.
 
 ---
 
-## 📌 Architecture Overview
-
+## Architecture Overview
 The architecture follows a classic 3-tier design:
 
-```
-Client Browser
-     |
-     |  (Port 326)
-     v
-Proxy Server (Nginx Reverse Proxy)
-     |
-     |  (Port 80)
-     v
-Application Server (Nginx + PHP-FPM)
-     |
-     v
-Database Server (MariaDB)
-```
+![Architecture Overview](img/overview.png)
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 * **Cloud Platform:** AWS EC2 (Amazon Linux)
 * **Automation Tool:** Ansible
 * **Web Server:** Nginx
 * **Application Runtime:** PHP + PHP-FPM
 * **Database:** MariaDB
-* **Architecture Type:** 3-Tier (Proxy → App → DB)
+* **Architecture Type:** 3-Tier (Proxy → Application → Database)
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 3-tier-ansible-project/
@@ -45,6 +31,7 @@ Database Server (MariaDB)
 ├── inventory.ini
 ├── README.md
 └── img/
+    ├── architecture_overview.png
     ├── ansible_playbook_run.png
     ├── proxy_server_status_active.png
     ├── app_nginx_php_status.png
@@ -55,7 +42,7 @@ Database Server (MariaDB)
 
 ---
 
-## ⚙️ Inventory Configuration
+## Inventory Configuration
 
 The `inventory.ini` file defines the target servers:
 
@@ -74,35 +61,35 @@ The `inventory.ini` file defines the target servers:
 
 ## Deployment Steps
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
-git clone [https://github.com/<your-username>/<your-repo-name>.git](https://github.com/RajAhire-1/AWS-3-Tier-Architecture-Provisioned-and-Configured-with-Ansible.git)
-cd <your-repo-name>
+git clone https://github.com/RajAhire-1/AWS-3-Tier-Architecture-Provisioned-and-Configured-with-Ansible.git
+cd AWS-3-Tier-Architecture-Provisioned-and-Configured-with-Ansible
 ```
 
-### 2️⃣ Update Inventory File
+### Update Inventory File
 
-Update `inventory.ini` with your EC2 private IPs and SSH key path.
+Update `inventory.ini` with your EC2 private IP addresses and SSH private key path.
 
-### 3️⃣ Run Ansible Playbook
+### Run the Ansible Playbook
 
 ```bash
 ansible-playbook -i inventory.ini 3-tier.yml
 ```
 
-### 4️⃣ Verify Services
+### Verify Services
 
 * **Proxy Server:** Nginx running and listening on port `326`
-* **App Server:** Nginx + PHP-FPM running
-* **DB Server:** MariaDB running with database created
+* **Application Server:** Nginx and PHP-FPM running
+* **Database Server:** MariaDB running with database created
 
-### 5️⃣ Access the Application
+### Access the Application
 
 Open your browser and navigate to:
 
 ```
-http://172.53.64.46:326
+http://<proxy-server-public-ip>:326
 ```
 
 ---
@@ -135,35 +122,26 @@ http://172.53.64.46:326
 
 ---
 
-## ✅ Validation Summary
+## Validation Summary
 
-* Reverse proxy working on custom port **326**
-* Requests forwarded from Proxy → App Server
-* PHP application executed successfully
+* Reverse proxy configured on custom port **326**
+* Traffic successfully forwarded from Proxy Server to Application Server
+* PHP application executed correctly
 * MariaDB installed and database created
-* Fully automated using Ansible
+* Complete infrastructure and configuration automated using Ansible
 
 ---
 
-## 🎯 Key Highlights
+## Key Highlights
 
-* Simple and clean Ansible playbook
-* No manual server configuration
-* Real-world DevOps use case
-* Resume and interview ready project
-
----
-
-## 🧠 Interview Ready Explanation
-
-> "This project demonstrates a 3-tier architecture where Nginx acts as a reverse proxy, forwarding traffic to an application server running PHP, with MariaDB as the backend database. The entire setup is automated using Ansible."
+* End-to-end automation using Ansible
+* No manual configuration on target servers
+* Real-world DevOps architecture implementation
+* Suitable for resumes, interviews, and portfolio projects
 
 ---
+## Author & Links
 
-## 📌 Conclusion
+* **LinkedIn:** [https://www.linkedin.com/in/raj-ahire](https://www.linkedin.com/in/raj-ahire)
+* **Medium Blog:** [https://medium.com/@rajahire326](https://medium.com/@rajahire326)
 
-This project showcases practical **DevOps automation skills**, infrastructure understanding, and hands-on experience with **Ansible and AWS**. It reflects a real-world production-style deployment in a simple and effective manner.
-
----
-
-If you like this project, don’t forget to star the repository!
