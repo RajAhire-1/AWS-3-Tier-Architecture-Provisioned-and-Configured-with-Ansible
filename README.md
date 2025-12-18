@@ -77,7 +77,7 @@ The `inventory.ini` file defines the target servers:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
+git clone [https://github.com/<your-username>/<your-repo-name>.git](https://github.com/RajAhire-1/AWS-3-Tier-Architecture-Provisioned-and-Configured-with-Ansible.git)
 cd <your-repo-name>
 ```
 
@@ -102,7 +102,7 @@ ansible-playbook -i inventory.ini 3-tier.yml
 Open your browser and navigate to:
 
 ```
-http://<PROXY_SERVER_PUBLIC_IP>:326
+http://172.53.64.46:326
 ```
 
 ---
